@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 void main()
 {
     int n;
@@ -21,14 +22,19 @@ void main()
     }
     printf("2 3 ");
     int i,j;
+    bool isPrime;
     for (i = 4; i < n; i++)
     {
+        isPrime = true;
         for(j = 2; j <= i/2; j++)
         {
             if ((i%j) == 0)
+            {
+                isPrime = false;
                 break;
+            }
         }
-        if (j > i/2)
+        if (isPrime)
             printf("%d ", i);
     }
 }
